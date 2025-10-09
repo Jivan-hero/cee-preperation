@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics - CEE Entrance Preparation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-solid">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>CEE Prep</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="subject-hero" style="background-image: url('https://pixabay.com/get/g370e98c06881f1d0cf9f0b1a3a14603c021bf52d2a67453590aa687836d579449530529822092690e3d279726e7a7cbab85ceb087b7af3af887361c2710f9279_1280.jpg');">
+        <div class="subject-hero-content">
+            <div class="subject-icon">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <h1>Mathematics</h1>
+            <p>Master the language of science and engineering</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="chapters-nav">
+                <h2>Choose a Chapter</h2>
+                <div class="chapters-grid">
+                    <div class="chapter-card" onclick="showChapter('algebra')">
+                        <div class="chapter-number">01</div>
+                        <h3>Algebra</h3>
+                        <p>Equations, Functions, and Polynomials</p>
+                    </div>
+                    <div class="chapter-card" onclick="showChapter('calculus')">
+                        <div class="chapter-number">02</div>
+                        <h3>Calculus</h3>
+                        <p>Limits, Derivatives, and Integrals</p>
+                    </div>
+                    <div class="chapter-card" onclick="showChapter('geometry')">
+                        <div class="chapter-number">03</div>
+                        <h3>Geometry</h3>
+                        <p>Shapes, Areas, and Volumes</p>
+                    </div>
+                    <div class="chapter-card" onclick="showChapter('trigonometry')">
+                        <div class="chapter-number">04</div>
+                        <h3>Trigonometry</h3>
+                        <p>Angles, Triangles, and Identities</p>
+                    </div>
+                    <div class="chapter-card" onclick="showChapter('statistics')">
+                        <div class="chapter-number">05</div>
+                        <h3>Statistics</h3>
+                        <p>Data Analysis and Probability</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-content" id="chapterContent" style="display: none;">
+                <div class="chapter-header">
+                    <button class="back-btn" onclick="hideChapter()">
+                        <i class="fas fa-arrow-left"></i> Back to Chapters
+                    </button>
+                    <h2 id="chapterTitle"></h2>
+                </div>
+
+                <div class="content-tabs">
+                    <button class="tab-button active" onclick="showTab('notes')">
+                        <i class="fas fa-book"></i> Study Notes
+                    </button>
+                    <button class="tab-button" onclick="showTab('quiz')">
+                        <i class="fas fa-question-circle"></i> Take Quiz
+                    </button>
+                </div>
+
+                <div class="tab-content" id="notesTab">
+                    <div class="notes-content" id="notesContent">
+                        <!-- Notes will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="tab-content" id="quizTab" style="display: none;">
+                    <div class="quiz-container" id="quizContainer">
+                        <!-- Quiz will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

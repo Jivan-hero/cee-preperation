@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Results — CEE Entrance Preparation</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><h1>CEE Entrance Preparation</h1></div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="results.html" class="active">Results</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content results-page">
+  <h2>Your Results</h2>
+  <table class="results-table" aria-live="polite">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Chapter</th>
+        <th>Score</th>
+        <th>Time (mm:ss)</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="resultsTable"></tbody>
+  </table>
+  <div class="results-actions">
+    <button id="clearResults">Clear Results</button>
+  </div>
+</main>
+
+<script>
+  function mmss(s){const m=Math.floor(s/60),ss=s%60;return `${m}:${ss<10?'0'+ss:ss}`;}
+  function render(){
+    const data = JSON.parse(localStorage.getItem('quizResults'))||[];
+    const tbody = document.getElementById('resultsTable');
+    tbody.innerHTML = '';
+    if(!data.length){tbody.innerHTML="<tr><td colspan='5'>No results yet</td></tr>";return;}
+    data.forEach(r=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML = `<td>${r.subject}</td><td>${r.chapter}</td><td>${r.score} / ${r.total}</td><td>${mmss(r.time)}</td><td>${new Date(r.date).toLocaleString()}</td>`;
+      tbody.appendChild(tr);
+    });
+  }
+  document.getElementById('clearResults').onclick=()=>{ if(confirm('Clear all results?')){localStorage.removeItem('quizResults'); render();}};
+  render();
+</script>
+
+<footer class="site-footer">
+  <p>&copy; 2025 CEE Entrance Preparation</p>
+</footer>
+</body>
+</html>
