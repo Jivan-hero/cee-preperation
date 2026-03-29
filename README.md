@@ -1,2 +1,2 @@
 # cee-preperation
-to make the entrance more esay
+"CEE Preparation - Resources and guides to help students prepare for entrance exams"
